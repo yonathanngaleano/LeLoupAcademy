@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Loup Academy | Carrera Profesional de Tattoo</title>
+  <meta name="description" content="Formación profesional de tatuaje en Le Loup Academy, Berazategui. Dominio de técnica, trazo, máquinas pen y práctica guiada sobre modelo vivo.">
+  <style>
+    :root {
+      --bg-color: #0b0c0e;
+      --card-bg: #14161b;
+      --card-border: #222630;
+      --text-main: #f0f2f5;
+      --text-muted: #9ba1b0;
+      --accent-blue: #73b2d9;
+      --accent-blue-hover: #8ec3e6;
+      --white: #ffffff;
+      --max-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Fondo mejorado: resplandores radiales + grano sutil + trama de puntos */
+    body {
+      background-color: var(--bg-color);
+      background-image:
+        radial-gradient(circle at 50% -10%, rgba(115, 178, 217, 0.16) 0%, transparent 48%),
+        radial-gradient(circle at 100% 105%, rgba(90, 110, 145, 0.14) 0%, transparent 55%),
+        radial-gradient(circle at 0% 60%, rgba(115, 178, 217, 0.06) 0%, transparent 45%),
+        radial-gradient(rgba(115, 178, 217, 0.10) 1px, transparent 1px),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px, 140px 140px;
+      background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+      background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat;
+      background-attachment: fixed, fixed, fixed, scroll, scroll;
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 75px; /* Espacio para barra flotante móvil */
+    }
+
+    /* Banners de imágenes del estudio y tattoo */
+    .image-banner {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.65) contrast(1.15);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    /* Layout general */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 55px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    h1, h2, h3 {
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    /* Botones CTA */
+    .btn-primary {
+      display: inline-block;
+      width: 100%;
+      max-width: 380px;
+      background-color: var(--accent-blue);
+      color: #08090b;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      padding: 16px 24px;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(115, 178, 217, 0.25);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      color: var(--text-muted);
+      text-decoration: underline;
+      font-size: 0.9rem;
+      margin-top: 14px;
+      text-align: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-wrapper {
+      text-align: center;
+      margin-top: 28px;
+    }
+
+    /* Header / Hero */
+    .hero {
+      text-align: center;
+      padding: 60px 20px 45px;
+    }
+
+    .brand-logo-wrapper {
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(240, 242, 245, 0.94);
+      border: 1px solid var(--card-border);
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(115, 178, 217, 0.15);
+    }
+
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin: 0 auto 30px;
+      color: #d1d5db;
+      font-weight: 400;
+    }
+
+    /* Grillas y Tarjetas */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+      h2 { font-size: 2.2rem; }
+      .hero-title { font-size: 3.2rem; }
+      .image-banner { height: 360px; }
+    }
+
+    .card {
+      background-color: rgba(20, 22, 27, 0.85);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 26px;
+      backdrop-filter: blur(5px);
+    }
+
+    .card h3 {
+      color: var(--white);
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .card ul li::before {
+      content: "•";
+      color: var(--accent-blue);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* FAQ Details */
+    details {
+      background-color: rgba(20, 22, 27, 0.85);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+
+    summary {
+      font-weight: 600;
+      color: var(--white);
+      cursor: pointer;
+      outline: none;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary::after {
+      content: "+";
+      color: var(--accent-blue);
+      font-size: 1.3rem;
+    }
+
+    details[open] summary::after {
+      content: "-";
+    }
+
+    details p {
+      margin-top: 12px;
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    /* Floating Mobile CTA */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(11, 12, 14, 0.92);
+      border-top: 1px solid var(--card-border);
+      padding: 12px 16px;
+      z-index: 999;
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+    }
+
+    .sticky-bar .btn-primary {
+      padding: 14px 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="container">
+      <!-- Icono Silueta Lobo SVG -->
+      <div class="brand-logo-wrapper">
+        <svg class="brand-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Contorno de cabeza de lobo frontal geometrica -->
+          <path d="M100,52 L127,38 L159,14 L146,57 L172,95 L140,108 L118,178 L100,191 L100,191 L82,178 L60,108 L28,95 L54,57 L41,14 L73,38 L100,52 Z"
+                fill="none" stroke="#14161b" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- Pliegue interno de orejas -->
+          <path d="M152,30 L140,55 M48,30 L60,55" stroke="#14161b" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <!-- Ojos -->
+          <path d="M106,101 L124,107 M94,101 L76,107" stroke="#14161b" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <!-- Hocico -->
+          <path d="M100,118 L114,136 L100,154 L86,136 Z" fill="none" stroke="#14161b" stroke-width="5" stroke-linejoin="round"/>
+          <!-- Menton -->
+          <path d="M100,154 L100,164 M88,178 L100,168 L112,178" stroke="#14161b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="hero-subtitle">Le Loup Academy</div>
+      <h1 class="hero-title">Carrera Profesional de Tattoo</h1>
+      <p class="hero-tagline">
+        Dominá la técnica, el trazo y la práctica sobre piel real. Una formación intensiva diseñada para transformar tu talento en un oficio profesional de alto nivel con el respaldo de Le Loup Studio.
+      </p>
+      
+      <div class="cta-wrapper">
+        <button class="btn-primary js-wa-btn">QUIERO CONOCER EL BENEFICIO</button>
+        <div>
+          <a href="#programa" class="btn-secondary">VER EL PROGRAMA</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PRESENTACIÓN -->
+  <section class="container">
+    <h2>Formación Especializada para la Nueva Generación</h2>
+    <p style="text-align: center; max-width: 750px; margin: 0 auto 20px;">
+      El curso de iniciación al tattoo de Le Loup Studio está pensado para quienes buscan comenzar desde cero o perfeccionar sus bases técnicas bajo un estándar real de estudio profesional.
+    </p>
+    <p style="text-align: center; max-width: 750px; margin: 0 auto;">
+      Aprenderás el manejo riguroso de máquinas Pen inalámbricas, configuración de aguja, control de profundidad, sombras y líneas, complementado con estrictos protocolos sanitarios y bioseguridad.
+    </p>
+  </section>
+
+  <!-- FOTO SEPARADORA 1 -->
+  <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=1200&q=80" alt="Máquina de tatuar pen y estación de trabajo" class="image-banner">
+
+  <!-- QUÉ VAS A APRENDER -->
+  <section id="programa" class="container">
+    <h2>Programa Teórico & Práctico (Módulo I)</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>01. Fundamentos & Bioseguridad</h3>
+        <ul>
+          <li>Historia del tatuaje y bioseguridad aplicada.</li>
+          <li>Protocolos sanitarios, esterilización y manejo de residuos.</li>
+          <li>Anatomía básica de la piel y proceso de cicatrización.</li>
+          <li>Armado y desinfección de la estación de trabajo.</li>
+          <li>Máquinas Pen inalámbricas, voltajes y configuraciones.</li>
+          <li>Tipos de cartuchos (Round Liner, Shader, Magnum).</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>02. Preparación de Stencil</h3>
+        <ul>
+          <li>Adaptación técnica del diseño para la piel.</li>
+          <li>Preparación de la zona, rasurado y desinfección.</li>
+          <li>Colocación precisa del stencil según la anatomía.</li>
+          <li>Práctica de posicionamiento y durabilidad del calco.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>03. Dominio Técnico (Líneas y Rellenos)</h3>
+        <ul>
+          <li>Control de mano, trazos rectos y curvas fluidas.</li>
+          <li>Profundidad exacta de la aguja y ritmo de pasada.</li>
+          <li>Relleno sólido y saturación uniforme sin lastimar la piel.</li>
+          <li>Integración de líneas finas y bloques de color/negro.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>04. Sombras, Volumen & Modelo Vivo</h3>
+        <ul>
+          <li>Sombreado tradicional, graduación y contraste.</li>
+          <li>Técnicas de puntillismo y densidades visuales.</li>
+          <li>Prácticas intensivas sobre piel sintética.</li>
+          <li><strong>Evaluación Final:</strong> Ejecución de tatuaje sobre modelo vivo.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL MÉTODO LE LOUP -->
+  <section class="container">
+    <h2>El Método Le Loup</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Enfoque 100% Práctico</h3>
+        <p>Aprenderás haciendo desde la primera clase en piel sintética hasta completar tu evaluación guiada sobre modelo vivo.</p>
+      </div>
+      <div class="card">
+        <h3>Acompañamiento Egresados</h3>
+        <p>Al finalizar la cursada te sumarás al grupo exclusivo de egresados para recibir devoluciones y constante feedback en tus trabajos.</p>
+      </div>
+      <div class="card">
+        <h3>Estándar de Estudio</h3>
+        <p>Incorporarás la disciplina, higiene y criterio profesional necesario para integrarte al circuito de estudios de tatuaje.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOTO SEPARADORA 2 -->
+  <img src="https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=1200&q=80" alt="Tatuador aplicando plantilla y stencil" class="image-banner">
+
+  <!-- DATOS GENERALES -->
+  <section class="container">
+    <h2>Información del Curso</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Modalidad y Horarios</h3>
+        <ul>
+          <li><strong>Modalidad:</strong> Presencial.</li>
+          <li><strong>Duración:</strong> Un mes y medio.</li>
+          <li><strong>Frecuencia:</strong> 2 clases semanales (2 horas por clase).</li>
+          <li><strong>Carga Horaria:</strong> 10 clases presenciales (20 hs totales).</li>
+          <li><strong>Cupos Reducidos:</strong> Máximo 5 alumnos por comisión.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Ubicación y Beneficios</h3>
+        <ul>
+          <li><strong>Insumos:</strong> Materiales incluidos durante las clases.</li>
+          <li><strong>Certificación:</strong> Certificación por módulo cumplimentado.</li>
+          <li><strong>Sede:</strong> Calle 10 n° 3052, Berazategui (Le Loup Studio).</li>
+          <li><strong>Consultas:</strong> Escribinos por WhatsApp para conocer el beneficio de inscripción disponible.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN ES -->
+  <section class="container">
+    <h2>¿Para quién es esta carrera?</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Iniciación desde Cero</h3>
+        <p>Si nunca agarraste una máquina pero querés aprender con una base técnica profesional y segura desde el primer día.</p>
+      </div>
+      <div class="card">
+        <h3>Conocimientos Básicos</h3>
+        <p>Si ya tatuás de forma autodidacta y querés corregir errores de profundidad, líneas, voltajes y bioseguridad.</p>
+      </div>
+      <div class="card">
+        <h3>Salida Profesional</h3>
+        <p>Para quienes buscan convertir el tatuaje en su actividad laboral principal respaldados por la experiencia de Le Loup Studio.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIO DE INSCRIPCIÓN -->
+  <section class="container" style="text-align: center;">
+    <h2>Beneficio Especial de Inscripción</h2>
+    <p style="max-width: 600px; margin: 0 auto 20px;">
+      Estamos ofreciendo un beneficio especial para las personas que se inscriban en la próxima comisión de Le Loup Academy.
+    </p>
+    <p style="color: var(--white); font-weight: 600; margin-bottom: 25px;">
+      Consultá por WhatsApp para conocer las promociones vigentes y asegurar tu lugar en el grupo reducido.
+    </p>
+    <button class="btn-primary js-wa-btn">QUIERO MI BENEFICIO</button>
+  </section>
+
+  <!-- FOTO SEPARADORA 3 -->
+  <img src="https://images.unsplash.com/photo-1542382257-80dedb725088?auto=format&fit=crop&w=1200&q=80" alt="Detalle de proceso de tatuaje en estudio" class="image-banner">
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section class="container">
+    <h2>Preguntas Frecuentes</h2>
+    
+    <details>
+      <summary>¿Necesito conocimientos previos para empezar?</summary>
+      <p>No. La carrera arranca desde los fundamentos básicos hasta la práctica presencial completa sobre modelo vivo.</p>
+    </details>
+
+    <details>
+      <summary>¿Tengo que llevar mis propios materiales a la clase?</summary>
+      <p>No. Todos los materiales de trabajo y descartables están incluidos durante el desarrollo de la cursada presencial.</p>
+    </details>
+
+    <details>
+      <summary>¿Cómo funciona la práctica con modelo vivo?</summary>
+      <p>En la Clase 10 aplicarás todo lo aprendido realizando un tatuaje real con supervisión técnica. Dicha clase requiere el costo básico de insumos descartables del modelo.</p>
+    </details>
+
+    <details>
+      <summary>¿Dónde se cursa la carrera?</summary>
+      <p>En el estudio de Le Loup Studio ubicado en Calle 10 n° 3052, Berazategui.</p>
+    </details>
+
+    <details>
+      <summary>¿Cómo reservo mi vacante?</summary>
+      <p>Al ser grupos de máximo 5 alumnos, los cupos se completan por orden de reserva. Escribinos por WhatsApp para solicitar los medios de inscripción.</p>
+    </details>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="container" style="text-align: center; padding: 60px 20px;">
+    <h2>Tu Formación Profesional Empieza Acá</h2>
+    <p style="margin-bottom: 25px;">Escribinos por WhatsApp y recibí toda la información de fechas, horarios y tu beneficio especial.</p>
+    <button class="btn-primary js-wa-btn">CONTACTAR POR WHATSAPP</button>
+  </section>
+
+  <!-- BARRA FLOTANTE MÓVIL -->
+  <div class="sticky-bar">
+    <button class="btn-primary js-wa-btn">SOLICITAR INFORMACIÓN POR WHATSAPP</button>
+  </div>
+
+  <script>
+    (function() {
+      const phone = "5491169663846";
+      const defaultMessage = "Hola Le Loup Academy. Quiero mi beneficio de inscripción y más información sobre la Carrera Profesional de Tattoo.";
+      
+      const encodedMsg = encodeURIComponent(defaultMessage);
+      const waUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodedMsg}`;
+
+      function openWhatsApp(e) {
+        if (e) e.preventDefault();
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+          window.location.href = waUrl;
+        } else {
+          window.open(waUrl, '_blank', 'noopener,noreferrer');
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        const buttons = document.querySelectorAll(".js-wa-btn");
+        buttons.forEach(function(btn) {
+          btn.addEventListener("click", openWhatsApp);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
